@@ -1,3 +1,5 @@
+# Train of thought
+
 - in a custom folder (like with SQLDelight) for each source set
 - should generate based on gherkin file
 - should generate kotlin code using that uses the official test library
@@ -33,5 +35,35 @@
 - parameterizable steps should be considered
 - the specflow descendant project reqnroll and cucumber documentation might give more ideas and
   insights
-  - https://docs.reqnroll.net/latest/
-  - https://cucumber.io/
+    - https://docs.reqnroll.net/latest/
+    - https://cucumber.io/
+- would be nice to support instrumented tests too
+    - like Kotest does not work out of the box with Android instrumented tests, because Kotest uses
+      JUnit5 and the instrumented test runner JUnit4
+- Kotlin Test library seems a good library to build on
+    - supports the most important platforms, can be integrated with multiple JVM frameworks (JUnit4,
+      JUnit5, TestNG)
+    - is maintained by Jetbrains, official library
+- https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-run-tests.html#test-a-simple-multiplatform-project
+- https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html#writing-and-running-tests-with-compose-multiplatform
+- if I'll choose to use Kotlin DSL for the test definitions, it seems a good idea to first implement
+  a prototype of the library, then add the code generation implementation
+- I should probably go with SemVer
+
+# Case Studies
+
+## 1. Cucumber
+
+- it's really cool that the undefined steps are printed in the test output in way, that the function
+  declarations can be copied to the codebase
+- it uses the class that contains the step definition implementation, to store the state of the test
+  case (variables)
+- Gherkin language's examples can make the feature much more readable, and Cucumber works really
+  well with it, that it generates the test cases based on that
+- there is an possibility to allow parallel execution with junit5, though I don't really like
+  that the gherkin code needs to modified to handle concurrency in some cases
+- ob JUnit4 parallel execution for scenarios is allowed, which is cool
+- the arguments are interestingly well resolved with Kotlin, its implementation is probably worth
+  investigating
+- data tables
+- TODO: continue from https://cucumber.io/docs/cucumber/api#steps
