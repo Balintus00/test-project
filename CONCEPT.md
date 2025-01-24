@@ -66,4 +66,17 @@
 - the arguments are interestingly well resolved with Kotlin, its implementation is probably worth
   investigating
 - data tables
-- TODO: continue from https://cucumber.io/docs/cucumber/api#steps
+- step definitions are matched to the code using regexp and similar methods. Would be nice if I
+  could avoid this using code generation or some other solution, because it seems error prone.
+- Cucumber has step results, this might not be needed for my goal
+- hooks seems really useful, and I think it would worth implementing them
+- conditional hooks seems interesting, though I'm not sure about using tags in the DSL
+- tags probably won't be supported, at least in the first version
+- [cucumber junit platform engine documentation](https://github.com/cucumber/cucumber-jvm/tree/main/cucumber-junit-platform-engine)
+- parameter types are interesting, and seems useful
+- [cucumber expressions](https://github.com/cucumber/cucumber-expressions#readme) - alternative to
+  regexp, would be nice to avoid the need for this by constructing the DSL properly
+- would be nice to avoid customising reporting, and instead just depend on the used test framework's
+  abilities
+- the asterisk (*) syntax is interesting for steps, might consider supporting it
+- scenario outlines with data tables is really useful
